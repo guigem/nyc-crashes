@@ -26,6 +26,7 @@ The end result should not contain any missing values, no dupplicates and data fo
 ## Steps 
 
 In order to simplify our approach, we will only present the 100,000 rows dataset. 
+The first inital step that is needed for the rest of our cleaning/pre-processing is to allocate *collision_id* as our index, checking that there are no dupplicates and finally, remove all blank spaces for all the cells in our dataframe. 
 
 <details>
   <summary> Handling missing values </summary>
@@ -81,12 +82,31 @@ Moreover, in order to facilitate the different categories of vehicules, we repla
 </details>
 
 <details>
-  <summary> Consolidate data </summary>
+  <summary> Changing Date format </summary>
+  
+  
+The *crash_date* is wrongly inserted and this makes it impossible to use it. Therefore, from this column, we have extracted:
 
+- The day that we stored in the column *day*,
+- The month that we stored in the column *month*,
+- The year that we stored in the column *year*.
 
-
-
-
-
+By adding up these elements using [Datetime](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.to_datetime.html "Title"), we managed to have a cleaned date column to work with later on.
 
 </details>
+
+<details>
+  <summary> Adding information/columns </summary>
+
+
+In order to improve the conclusions one could draw by analysing the dataset, we added a few columns:
+
+- *day*, *month* and *year* as explained in the data format part.
+- *hour* to directly have the hour an accident occured.
+- *day_night*  in order to know if it was during the day or the night (**7-20: day, 21-6: night**). We put binary values (**0 for day and 1 for night**) as values.
+- *victim* to summarize the number of victims (injured or killed) of a crash
+- *season* (**0 is winter, 1 is spring, 2 is summer and 3 is fall**)
+
+</details>
+
+These steps were needed to provide a dataframe ready to run machine learning algorithms on it. Based on what the objectives and target are, some other steps can be added such as resampling, etc. The output csv file can be found for ![the 100,000 rows](data/output_data_100000.csv "Title1") and [the 1,000,000 rows](data/output_data_1000000.zip "Title1") (for this one, there is a zip file as github does not allow files that heavy).
