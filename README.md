@@ -9,7 +9,7 @@
 ## Aim of this project
 
 The goal of this project is to clean a [dataset](https://data.cityofnewyork.us/Public-Safety/Motor-Vehicle-Collisions-Crashes/h9gi-nx95 "Title"), which represents crashes that occured in New York City, in order to run machine learning algorihtms. This task requires a certain number of steps that will be exposed and explained below.
-The end result should not contain any missing values, no dupplicates and data formats should be correct. Moreover, the dataset should be optimized in order to on the one hand, be statistically correct and on the other hand, be as informative as possible.
+The end result should not contain any missing values, no dupplicates and data formats should be correct. Moreover, the dataset should be optimized in order to, on the one hand, be statistically correct and, on the other hand, be as informative as possible.
 
 ## Repository content
 
@@ -25,6 +25,12 @@ The end result should not contain any missing values, no dupplicates and data fo
 
 ## Steps 
 
+### Handling missing values
+
+The following graph shows the number of missing values of our initial dataset. In order to simplify our approach, we will only present the 100,000 rows dataset.
+
+As one can notice, some of the columns are massively empty. We can cite *cross_street_name*, *off_street_name*, *contributing_factor_vehicle_3*, *contributing_factor_vehicle_4*, *contributing_factor_vehicle_5*, *vehicle_type_code_3*, *vehicle_type_code_4*, *vehicle_type_code_5*. 
+Therefore, we decided to simply remove these columns as it becomes almost impossible to fill them with values without biaising our analysis.
 
 
 
